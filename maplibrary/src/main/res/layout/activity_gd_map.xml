@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+
+    <com.amap.api.maps2d.MapView
+        android:id="@+id/mapView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <Button
+        android:id="@+id/type"
+        android:layout_width="60dp"
+        android:layout_height="45dp"
+        android:text="模式"/>
+
+    <Button
+        android:id="@+id/around"
+        android:layout_width="60dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="50dp"
+        android:text="周边"
+        />
+
+    <Button
+        android:id="@+id/trajectory"
+        android:layout_width="60dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="100dp"
+        android:text="轨迹"
+        />
+</FrameLayout>

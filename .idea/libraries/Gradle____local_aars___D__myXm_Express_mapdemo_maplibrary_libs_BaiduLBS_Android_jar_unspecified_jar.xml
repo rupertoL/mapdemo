@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Gradle: __local_aars__:D.\myXm\Express\mapdemo\maplibrary\libs\BaiduLBS_Android.jar:unspecified@jar">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/maplibrary/libs/BaiduLBS_Android.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
