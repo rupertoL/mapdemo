@@ -43,7 +43,7 @@
         <service android:name="com.amap.api.location.APSService"/>
 
         <activity android:name="cn.lp.maplibrary.GdMapActivity"/>
-        <activity android:name="cn.lp.maplibrary.GdMap2Activity"/>
+        <activity android:name="cn.lp.maplibrary.GdMapEnclosureActivity"/>
         <activity android:name="cn.lp.maplibrary.BdMapActivity"/>
         <activity android:name="cn.lp.maplibrary.Bd2MapActivity"/>
     </application>

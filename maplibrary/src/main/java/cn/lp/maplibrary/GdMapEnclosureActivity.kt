@@ -14,13 +14,13 @@ import com.amap.api.maps2d.AMap
 import com.amap.api.maps2d.CameraUpdateFactory
 import com.amap.api.maps2d.LocationSource
 import com.amap.api.maps2d.model.*
-import kotlinx.android.synthetic.main.activity_gd_map.*
+import kotlinx.android.synthetic.main.activity_gd_map_enclosure.*
 
 /**
  * 高德地图使用api绘制电子围栏
  * 使用到的定位和其他的知识这里不在重复详细注释
  */
-class GdMap2Activity : AppCompatActivity(), LocationSource, AMapLocationListener {
+class GdMapEnclosureActivity : AppCompatActivity(), LocationSource, AMapLocationListener {
 
 
     lateinit var aMap: AMap
@@ -95,7 +95,7 @@ class GdMap2Activity : AppCompatActivity(), LocationSource, AMapLocationListener
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(layout.activity_gd_map2)
+        setContentView(layout.activity_gd_map_enclosure)
 
         mapView.onCreate(savedInstanceState)// 此方法必须重写
 
@@ -177,20 +177,21 @@ class GdMap2Activity : AppCompatActivity(), LocationSource, AMapLocationListener
         aMap.setMyLocationStyle(myLocationStyle) // 将自定义的 myLocationStyle 对象添加到地图上
 
         aMap.setOnMapClickListener {
-
             /**
              * 根据用户在地图上的点击，绘制多边形的定点
              */
             if (iseDitMode) {
                 latLngs.add(it)
                 if (latLngs.size > 1) {
-                    polylines.add(aMap.addPolyline(PolylineOptions()
+                    //这里逻辑在运动轨迹文章中已经介绍
+                  var  polyline =  aMap.addPolyline(PolylineOptions()
                             //手动数据测试
                             //.add(new LatLng(26.57, 106.71),new LatLng(26.14,105.55),new LatLng(26.58, 104.82), new LatLng(30.67, 104.06))
                             //集合数据
                             .addAll(latLngs).width(4f).setDottedLine(false).geodesic(true)
                             //颜色
-                            .color(Color.argb(255, 255, 68, 0))))
+                            .color(Color.argb(255, 255, 68, 0)))
+                    polylines.add(polyline)
                     this.marker!!.remove()
                 } else {
                     markerOptions.position(it)
@@ -276,6 +277,7 @@ class GdMap2Activity : AppCompatActivity(), LocationSource, AMapLocationListener
         for (polygonOptions in mPolygonOptions) {
             polygonOptions.fillColor(Color.argb(150, 239, 113, 113))
                     .strokeColor(Color.argb(150, 239, 113, 113)).strokeWidth(1f)
+            var  polygon = aMap.addPolygon(polygonOptions);
             mPolygons.add(aMap.addPolygon(polygonOptions))
         }
     }
@@ -287,7 +289,6 @@ class GdMap2Activity : AppCompatActivity(), LocationSource, AMapLocationListener
 
         for (polygon in mPolygons) {
             polygon.remove()
-
         }
         aMap.invalidate()
     }

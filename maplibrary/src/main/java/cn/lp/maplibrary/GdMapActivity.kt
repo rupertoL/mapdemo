@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import android.widget.Toast
+import cn.shequren.map.R
 import cn.shequren.map.R.layout
 import com.amap.api.location.AMapLocation
 import com.amap.api.location.AMapLocationClient
@@ -277,7 +278,12 @@ class GdMapActivity : AppCompatActivity(), LocationSource, AMapLocationListener 
             /**
              * 添加Marker覆盖物
              */
+            markerOptions.icon(BitmapDescriptorFactory
+                    .fromResource(R.drawable.express_icon_location_centre_point))
+            markerOptions.snippet("描述")
+            markerOptions.title("标题")
             aMap.addMarker(markerOptions);
+
         }
 
     }

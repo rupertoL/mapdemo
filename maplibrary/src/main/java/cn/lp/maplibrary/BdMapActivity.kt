@@ -204,7 +204,12 @@ class BdMapActivity : AppCompatActivity() {
 
             var markerOption = MarkerOptions()
             markerOption.position(lat).icon(BitmapDescriptorFactory.fromResource(R.drawable.express_icon_location_centre_point))
+            markerOption.title("标题")
+            var bundle =  Bundle()
+            bundle.putSerializable("info", "附加信息")
+            markerOption.extraInfo(bundle)
             markerOptions.add(markerOption)
+
 
         }
 
